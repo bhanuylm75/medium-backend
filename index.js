@@ -1,5 +1,6 @@
 import express from "express"
 import Jwt from "jsonwebtoken"
+import cors from "cors"
 import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
@@ -7,6 +8,9 @@ const app = express();
 import path from 'path';
 
 app.use(express.json())
+app.use(cors({
+  origin: 'https://main--clever-pony-fe7564.netlify.app/', // replace with your frontend URL
+}));
 
 app.post("/api/signup", async (req, res)=>{
   const body=req.body
@@ -97,9 +101,9 @@ app.post("/api/createblog/", async (req,res)=>{
   try{
     const blog = await prisma.Blog.create({
       data: {
-          title: body.title,
-          content: body.content,
-          authorId: Number(body.userid)
+          title: "first",
+          content: "test",
+          authorId: 1
       }
   })
 
