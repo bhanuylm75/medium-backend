@@ -8,9 +8,7 @@ const app = express();
 import path from 'path';
 
 app.use(express.json())
-app.use(cors({
-  origin: 'https://main--clever-pony-fe7564.netlify.app/', // replace with your frontend URL
-}));
+app.use(cors())
 
 app.post("/api/signup", async (req, res)=>{
   const body=req.body
