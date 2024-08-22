@@ -10,6 +10,13 @@ import path from 'path';
 app.use(express.json())
 app.use(cors())
 
+app.get("/"  (req,res)=>{
+  res.send("hello")
+  
+}
+       )
+
+
 app.post("/api/signup", async (req, res)=>{
   const body=req.body
   console.log(body)
